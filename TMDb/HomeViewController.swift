@@ -12,32 +12,11 @@ class HomeViewController: UIViewController {
 
     @IBOutlet weak var searchField: UITextField!
     
-    @IBOutlet weak var movieTopRatedBtn: UIButton!
-    @IBOutlet weak var movieUpcomingBtn: UIButton!
-    @IBOutlet weak var movieNowPlayingBtn: UIButton!
-    @IBOutlet weak var moviePopularBtn: UIButton!
-    
-    @IBOutlet weak var tvPopularBtn: UIButton!
-    @IBOutlet weak var tvTopRatedBtn: UIButton!
-    @IBOutlet weak var tvOnAirBtn: UIButton!
-    @IBOutlet weak var tvAiringTodayBtn: UIButton!
-    
-    @IBOutlet weak var peoplePopularBtn: UIButton!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let viewCollection: [UIView] = [
             searchField,
-            movieTopRatedBtn,
-            movieUpcomingBtn,
-            movieNowPlayingBtn,
-            moviePopularBtn,
-            tvPopularBtn,
-            tvTopRatedBtn,
-            tvOnAirBtn,
-            tvAiringTodayBtn,
-            peoplePopularBtn
         ]
 
         // Do any additional setup after loading the view.
