@@ -15,6 +15,7 @@
 		9D0A76E329BEFBA500DA306E /* ReviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D0A76E129BEFBA500DA306E /* ReviewCell.xib */; };
 		9D6CA39129B71EE200035705 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6CA38F29B71EE200035705 /* DetailViewController.swift */; };
 		9D6CA39229B71EE200035705 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D6CA39029B71EE200035705 /* DetailViewController.xib */; };
+		9D6EC60729BF0D030082FE6B /* ReviewStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6EC60629BF0D030082FE6B /* ReviewStorage.swift */; };
 		9D84032829B6F21E00E6A667 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D84032729B6F21E00E6A667 /* AppDelegate.swift */; };
 		9D84032A29B6F21E00E6A667 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D84032929B6F21E00E6A667 /* ViewController.swift */; };
 		9D84032F29B6F21E00E6A667 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D84032E29B6F21E00E6A667 /* Assets.xcassets */; };
@@ -46,6 +47,7 @@
 		9D0A76E129BEFBA500DA306E /* ReviewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReviewCell.xib; sourceTree = "<group>"; };
 		9D6CA38F29B71EE200035705 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		9D6CA39029B71EE200035705 /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
+		9D6EC60629BF0D030082FE6B /* ReviewStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewStorage.swift; sourceTree = "<group>"; };
 		9D84032429B6F21E00E6A667 /* TMDb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TMDb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D84032729B6F21E00E6A667 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D84032929B6F21E00E6A667 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -91,6 +93,14 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
+		9D6EC60529BF0CE40082FE6B /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				9D6EC60629BF0D030082FE6B /* ReviewStorage.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
 		9D84031B29B6F21E00E6A667 = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +121,7 @@
 		9D84032629B6F21E00E6A667 /* TMDb */ = {
 			isa = PBXGroup;
 			children = (
+				9D6EC60529BF0CE40082FE6B /* Storage */,
 				9DF0A87B29BAE4E800FA7750 /* Service */,
 				9D84F89429B858C600058F9E /* Cell */,
 				9D6CA39329B71F0A00035705 /* Data */,
@@ -248,6 +259,7 @@
 				9D860E5F29B9A04000B364BB /* PeopleViewController.swift in Sources */,
 				9DF0A87D29BAE50000FA7750 /* TmdbService.swift in Sources */,
 				9D0A76DF29BEF98000DA306E /* Review.swift in Sources */,
+				9D6EC60729BF0D030082FE6B /* ReviewStorage.swift in Sources */,
 				9D6CA39129B71EE200035705 /* DetailViewController.swift in Sources */,
 				9D860E5B29B9A02900B364BB /* ProfileViewController.swift in Sources */,
 				9D84F89229B855AC00058F9E /* MovieListViewController.swift in Sources */,

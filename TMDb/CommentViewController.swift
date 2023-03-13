@@ -15,6 +15,8 @@ class CommentViewController: UIViewController {
     @IBOutlet weak var submitBtn: UIButton!
     
     var review: Review?
+    var movieId: Int?
+    let storage = ReviewStorage()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +47,24 @@ class CommentViewController: UIViewController {
         } else if comment.isEmpty {
             self.presentAlert(message: "Please fill in your comment")
         } else {
-            // TODO: Core Data
+            if review?.id != nil {
+                
+            } else {
+                var reviewId = 1
+                
+                if let number = UserDefaults.standard.value(forKey: "LAST_SAVED_REVIEW_ID") as? Int {
+                    reviewId = number + 1
+                }
+                
+                let insert = Review(
+                    id: reviewId,
+                    name: name,
+                    comment: comment,
+                    movieId: movieId
+                )
+                
+                storage.save(review: insert)
+            }
             
             self.navigationController?.popViewController(animated: true)
         }

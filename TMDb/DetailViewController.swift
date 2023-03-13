@@ -23,6 +23,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var reviewTableView: UITableView!
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     
+    let storage = ReviewStorage()
     let reviewCellIdentifier = "ReviewCell"
     var reviewsData = [Review]()
     
@@ -43,14 +44,18 @@ class DetailViewController: UIViewController {
         }
         
         setupReviewTableUI()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         loadReviewData()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
+
         // Workaround to allow ScrollView recognize TableView's height
-        heightConstraint.constant = reviewTableView.contentSize.height
+        heightConstraint.constant = reviewTableView.contentSize.height  * CGFloat(1.5)
         view.layoutIfNeeded()
     }
     
@@ -61,8 +66,15 @@ class DetailViewController: UIViewController {
     }
     
     func loadReviewData() {
-        reviewsData.append(contentsOf: Review.SAMPLES)
+        reviewsData = storage.getAll()
         reviewTableView.reloadData()
+    }
+    
+    func measureTableView() {
+        heightConstraint.constant = CGFloat.greatestFiniteMagnitude
+        reviewTableView.reloadData()
+        reviewTableView.layoutIfNeeded()
+        heightConstraint.constant = reviewTableView.contentSize.height
     }
     
     @IBAction func writeRevieBtnTapped(_ sender: UIButton) {
@@ -100,6 +112,7 @@ extension DetailViewController {
         let controller = CommentViewController()
         
         controller.review = review
+        controller.movieId = self.movieDto?.id
         controller.title = review != nil ? "Edit Comment" : "Add Comment"
         controller.modalPresentationStyle = .fullScreen
         
