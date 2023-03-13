@@ -61,6 +61,26 @@ class ReviewStorage: NSObject {
         
     }
     
+    func update(review: Review) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let manageContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: reviewEntityName)
+        fetchRequest.predicate = NSPredicate(format: "review_id = %d", review.id!)
+        
+        do {
+            let fetch = try manageContext.fetch(fetchRequest)
+            let update = fetch[0] as! NSManagedObject
+            update.setValue(review.id, forKey: "review_id")
+            update.setValue(review.name, forKey: "review_name")
+            update.setValue(review.comment, forKey: "review_comment")
+            update.setValue(review.movieId, forKey: "review_movie_id")
+            
+            try manageContext.save()
+        } catch let error {
+            print(error)
+        }
+    }
+    
     func delete(reviewId: Int) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let manageContext = appDelegate.persistentContainer.viewContext

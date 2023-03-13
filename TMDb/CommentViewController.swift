@@ -59,7 +59,10 @@ class CommentViewController: UIViewController {
             self.presentAlert(message: "Please fill in your comment")
         } else {
             if review?.id != nil {
+                review?.name = name
+                review?.comment = comment
                 
+                storage.update(review: review!)
             } else {
                 var reviewId = 1
                 
