@@ -58,10 +58,12 @@ class DetailViewController: UIViewController {
     }
     
     func loadReviewData() {
-        reviewsData = storage.getAll()
-        reviewTableView.reloadData()
-        heightConstraint.constant = reviewTableView.contentSize.height  * CGFloat(1.5)
-        view.layoutIfNeeded()
+        if let movieId = movieDto?.id {
+            reviewsData = storage.getByMovieId(movieId: movieId)
+            reviewTableView.reloadData()
+            heightConstraint.constant = reviewTableView.contentSize.height  * CGFloat(1.5)
+            view.layoutIfNeeded()
+        }
     }
     
     func measureTableView() {
