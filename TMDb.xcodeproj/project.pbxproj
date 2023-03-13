@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D48197129BEAC4A0070102D /* IconMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D48197029BEAC4A0070102D /* IconMenu.swift */; };
 		9D6CA39129B71EE200035705 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6CA38F29B71EE200035705 /* DetailViewController.swift */; };
 		9D6CA39229B71EE200035705 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D6CA39029B71EE200035705 /* DetailViewController.xib */; };
+		9D7C915029BDF15A008FC6AA /* IconMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7C914E29BDF15A008FC6AA /* IconMenuCell.swift */; };
+		9D7C915129BDF15A008FC6AA /* IconMenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D7C914F29BDF15A008FC6AA /* IconMenuCell.xib */; };
 		9D84032829B6F21E00E6A667 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D84032729B6F21E00E6A667 /* AppDelegate.swift */; };
 		9D84032A29B6F21E00E6A667 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D84032929B6F21E00E6A667 /* ViewController.swift */; };
 		9D84032F29B6F21E00E6A667 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D84032E29B6F21E00E6A667 /* Assets.xcassets */; };
@@ -32,8 +35,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9D48197029BEAC4A0070102D /* IconMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconMenu.swift; sourceTree = "<group>"; };
 		9D6CA38F29B71EE200035705 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		9D6CA39029B71EE200035705 /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
+		9D7C914E29BDF15A008FC6AA /* IconMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconMenuCell.swift; sourceTree = "<group>"; };
+		9D7C914F29BDF15A008FC6AA /* IconMenuCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IconMenuCell.xib; sourceTree = "<group>"; };
 		9D84032429B6F21E00E6A667 /* TMDb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TMDb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D84032729B6F21E00E6A667 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D84032929B6F21E00E6A667 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +80,7 @@
 			children = (
 				9D860E5729B99A4100B364BB /* People.swift */,
 				9DF0A87929BAE3FF00FA7750 /* Movie.swift */,
+				9D48197029BEAC4A0070102D /* IconMenu.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -127,6 +134,8 @@
 				9D84F89629B8590400058F9E /* MovieCell.xib */,
 				9D860E6129B9A5E800B364BB /* PeopleCell.swift */,
 				9D860E6229B9A5E800B364BB /* PeopleCell.xib */,
+				9D7C914E29BDF15A008FC6AA /* IconMenuCell.swift */,
+				9D7C914F29BDF15A008FC6AA /* IconMenuCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -207,6 +216,7 @@
 				9D860E6029B9A04000B364BB /* PeopleViewController.xib in Resources */,
 				9D6CA39229B71EE200035705 /* DetailViewController.xib in Resources */,
 				9D84F88F29B83FA700058F9E /* HomeViewController.xib in Resources */,
+				9D7C915129BDF15A008FC6AA /* IconMenuCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,6 +233,7 @@
 				9D860E5829B99A4100B364BB /* People.swift in Sources */,
 				9D84032829B6F21E00E6A667 /* AppDelegate.swift in Sources */,
 				9D860E5F29B9A04000B364BB /* PeopleViewController.swift in Sources */,
+				9D48197129BEAC4A0070102D /* IconMenu.swift in Sources */,
 				9DF0A87D29BAE50000FA7750 /* TmdbService.swift in Sources */,
 				9D6CA39129B71EE200035705 /* DetailViewController.swift in Sources */,
 				9D860E5B29B9A02900B364BB /* ProfileViewController.swift in Sources */,
@@ -230,6 +241,7 @@
 				9D860E6329B9A5E800B364BB /* PeopleCell.swift in Sources */,
 				9DF0A87829BAE09900FA7750 /* Utils.swift in Sources */,
 				9DF0A87A29BAE3FF00FA7750 /* Movie.swift in Sources */,
+				9D7C915029BDF15A008FC6AA /* IconMenuCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
