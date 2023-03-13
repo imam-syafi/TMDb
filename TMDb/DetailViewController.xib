@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailViewController" customModule="TMDb" customModuleProvider="target">
             <connections>
                 <outlet property="backdrop" destination="cqz-84-WJD" id="rRa-VN-pCJ"/>
+                <outlet property="heightConstraint" destination="njN-ZR-qZP" id="1ZM-G5-dij"/>
                 <outlet property="overviewLabel" destination="ODz-mg-jod" id="fSG-01-ZzE"/>
                 <outlet property="poster" destination="WAF-hw-Ngm" id="gFq-Pr-s6d"/>
                 <outlet property="ratingLabel" destination="WKT-Jq-bPz" id="kRb-pn-anc"/>

@@ -21,6 +21,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var overviewLabel: UILabel!
     
     @IBOutlet weak var reviewTableView: UITableView!
+    @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     
     let reviewCellIdentifier = "ReviewCell"
     var reviewsData = [Review]()
@@ -43,6 +44,14 @@ class DetailViewController: UIViewController {
         
         setupReviewTableUI()
         loadReviewData()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        // Workaround to allow ScrollView recognize TableView's height
+        heightConstraint.constant = reviewTableView.contentSize.height
+        view.layoutIfNeeded()
     }
     
     func setupReviewTableUI() {
