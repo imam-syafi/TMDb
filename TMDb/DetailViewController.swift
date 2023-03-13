@@ -20,6 +20,11 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var overviewLabel: UILabel!
     
+    @IBOutlet weak var reviewTableView: UITableView!
+    
+    let reviewCellIdentifier = "ReviewCell"
+    var reviewsData = [Review]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -35,5 +40,40 @@ class DetailViewController: UIViewController {
             overviewLabel.text = movieDto!
                 .overview
         }
+        
+        setupReviewTableUI()
+        loadReviewData()
+    }
+    
+    func setupReviewTableUI() {
+        reviewTableView.delegate = self
+        reviewTableView.dataSource = self
+        reviewTableView.register(UINib(nibName: reviewCellIdentifier, bundle: nil), forCellReuseIdentifier: reviewCellIdentifier)
+    }
+    
+    func loadReviewData() {
+        reviewsData.append(contentsOf: Review.SAMPLES)
+        reviewTableView.reloadData()
+    }
+    
+    @IBAction func writeRevieBtnTapped(_ sender: UIButton) {
+        
+    }
+}
+
+extension DetailViewController : UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return reviewsData.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: reviewCellIdentifier, for: indexPath) as! ReviewCell
+        let data = reviewsData[indexPath.row]
+        
+        cell.nameLabel.text = data.name
+        cell.commentLabel.text = data.comment
+        
+        return cell
     }
 }
