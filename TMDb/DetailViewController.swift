@@ -66,13 +66,6 @@ class DetailViewController: UIViewController {
         }
     }
     
-    func measureTableView() {
-        heightConstraint.constant = CGFloat.greatestFiniteMagnitude
-        reviewTableView.reloadData()
-        reviewTableView.layoutIfNeeded()
-        heightConstraint.constant = reviewTableView.contentSize.height
-    }
-    
     @IBAction func writeRevieBtnTapped(_ sender: UIButton) {
         self.navigateToComment()
     }
