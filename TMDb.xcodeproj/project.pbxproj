@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D0A76D929BED97200DA306E /* TMDb.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9D0A76D729BED97200DA306E /* TMDb.xcdatamodeld */; };
 		9D6CA39129B71EE200035705 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6CA38F29B71EE200035705 /* DetailViewController.swift */; };
 		9D6CA39229B71EE200035705 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D6CA39029B71EE200035705 /* DetailViewController.xib */; };
 		9D84032829B6F21E00E6A667 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D84032729B6F21E00E6A667 /* AppDelegate.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9D0A76D829BED97200DA306E /* TMDb.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TMDb.xcdatamodel; sourceTree = "<group>"; };
 		9D6CA38F29B71EE200035705 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		9D6CA39029B71EE200035705 /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 		9D84032429B6F21E00E6A667 /* TMDb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TMDb.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -83,6 +85,7 @@
 			children = (
 				9D84032629B6F21E00E6A667 /* TMDb */,
 				9D84032529B6F21E00E6A667 /* Products */,
+				9D0A76D729BED97200DA306E /* TMDb.xcdatamodeld */,
 			);
 			sourceTree = "<group>";
 		};
@@ -219,6 +222,7 @@
 			files = (
 				9D84F89729B8590400058F9E /* MovieCell.swift in Sources */,
 				9D84F88E29B83FA700058F9E /* HomeViewController.swift in Sources */,
+				9D0A76D929BED97200DA306E /* TMDb.xcdatamodeld in Sources */,
 				9D84032A29B6F21E00E6A667 /* ViewController.swift in Sources */,
 				9D860E5829B99A4100B364BB /* People.swift in Sources */,
 				9D84032829B6F21E00E6A667 /* AppDelegate.swift in Sources */,
@@ -406,6 +410,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		9D0A76D729BED97200DA306E /* TMDb.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9D0A76D829BED97200DA306E /* TMDb.xcdatamodel */,
+			);
+			currentVersion = 9D0A76D829BED97200DA306E /* TMDb.xcdatamodel */;
+			path = TMDb.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 9D84031C29B6F21E00E6A667 /* Project object */;
 }
