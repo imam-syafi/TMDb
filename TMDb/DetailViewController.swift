@@ -46,17 +46,9 @@ class DetailViewController: UIViewController {
         setupReviewTableUI()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         loadReviewData()
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-
-        // Workaround to allow ScrollView recognize TableView's height
-        heightConstraint.constant = reviewTableView.contentSize.height  * CGFloat(1.5)
-        view.layoutIfNeeded()
     }
     
     func setupReviewTableUI() {
@@ -68,6 +60,8 @@ class DetailViewController: UIViewController {
     func loadReviewData() {
         reviewsData = storage.getAll()
         reviewTableView.reloadData()
+        heightConstraint.constant = reviewTableView.contentSize.height  * CGFloat(1.5)
+        view.layoutIfNeeded()
     }
     
     func measureTableView() {
