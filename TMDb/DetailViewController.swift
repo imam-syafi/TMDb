@@ -66,7 +66,7 @@ class DetailViewController: UIViewController {
     }
     
     @IBAction func writeRevieBtnTapped(_ sender: UIButton) {
-        
+        self.navigateToComment()
     }
 }
 
@@ -84,5 +84,25 @@ extension DetailViewController : UITableViewDelegate, UITableViewDataSource {
         cell.commentLabel.text = data.comment
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let data = reviewsData[indexPath.row]
+        self.navigateToComment(review: data)
+    }
+}
+
+extension DetailViewController {
+    
+    func navigateToComment(review: Review? = nil) {
+        let controller = CommentViewController()
+        
+        controller.review = review
+        controller.title = review != nil ? "Edit Comment" : "Add Comment"
+        controller.modalPresentationStyle = .fullScreen
+        
+        self.navigationController?.pushViewController(controller, animated: true)
     }
 }

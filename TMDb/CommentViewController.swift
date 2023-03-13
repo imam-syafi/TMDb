@@ -14,6 +14,8 @@ class CommentViewController: UIViewController {
     @IBOutlet weak var commentField: UITextView!
     @IBOutlet weak var submitBtn: UIButton!
     
+    var review: Review?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,6 +26,12 @@ class CommentViewController: UIViewController {
                 NSAttributedStringKey.foregroundColor: UIColor.lightGray
             ]
         )
+        
+        if review != nil {
+            nameField.text = review?.name
+            commentField.text = review?.comment
+            submitBtn.setTitle("Update", for: .normal)
+        }
     }
     
     @IBAction func onSubmit(_ sender: UIButton) {
@@ -37,12 +45,9 @@ class CommentViewController: UIViewController {
         } else if comment.isEmpty {
             self.presentAlert(message: "Please fill in your comment")
         } else {
-            self.presentAlert(title: "Info", message: "Ready to be submitted")
-
-            print(name)
-            print(comment)
+            // TODO: Core Data
             
-//            self.navigationController?.popViewController(animated: true)
+            self.navigationController?.popViewController(animated: true)
         }
     }
 }
