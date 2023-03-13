@@ -13,6 +13,7 @@ class CommentViewController: UIViewController {
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var commentField: UITextView!
     @IBOutlet weak var submitBtn: UIButton!
+    @IBOutlet weak var deleteBtn: UIButton!
     
     var review: Review?
     var movieId: Int?
@@ -22,6 +23,8 @@ class CommentViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        deleteBtn.isHidden = review?.id == nil
+        
         nameField.attributedPlaceholder = NSAttributedString(
             string: "Please fill in your name…",
             attributes: [
@@ -33,6 +36,14 @@ class CommentViewController: UIViewController {
             nameField.text = review?.name
             commentField.text = review?.comment
             submitBtn.setTitle("Update", for: .normal)
+        }
+    }
+    
+    
+    @IBAction func onDelete(_ sender: UIButton) {
+        if let reviewId = review?.id {
+            storage.delete(reviewId: reviewId)
+            self.navigationController?.popViewController(animated: true)
         }
     }
     

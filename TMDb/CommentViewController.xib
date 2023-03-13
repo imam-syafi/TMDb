@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CommentViewController" customModule="TMDb" customModuleProvider="target">
             <connections>
                 <outlet property="commentField" destination="1Fw-EK-6Ar" id="tM5-O1-zvY"/>
+                <outlet property="deleteBtn" destination="K8j-xa-s3H" id="0kq-7J-JA5"/>
                 <outlet property="nameField" destination="diB-zB-sgE" id="DDJ-6g-cly"/>
                 <outlet property="submitBtn" destination="R3d-Vv-TOM" id="bPf-AZ-Jha"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -75,8 +76,19 @@
                                 <action selector="onSubmit:" destination="-1" eventType="touchUpInside" id="uQ8-DI-dPy"/>
                             </connections>
                         </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K8j-xa-s3H">
+                            <rect key="frame" x="161" y="343" width="52" height="33"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                            <state key="normal" title="Delete">
+                                <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="onDelete:" destination="-1" eventType="touchUpInside" id="Tjd-gI-3jg"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <constraints>
+                        <constraint firstItem="K8j-xa-s3H" firstAttribute="centerX" secondItem="ffs-Wt-3jn" secondAttribute="centerX" id="1IV-s9-9uV"/>
                         <constraint firstItem="diB-zB-sgE" firstAttribute="top" secondItem="g0B-Lv-vf9" secondAttribute="bottom" constant="8" id="2xM-tj-N3P"/>
                         <constraint firstItem="R3d-Vv-TOM" firstAttribute="top" secondItem="1Fw-EK-6Ar" secondAttribute="bottom" constant="36" id="35M-eC-HsF"/>
                         <constraint firstItem="diB-zB-sgE" firstAttribute="centerX" secondItem="ffs-Wt-3jn" secondAttribute="centerX" id="6Jh-fg-lH6"/>
@@ -84,11 +96,12 @@
                         <constraint firstItem="1Fw-EK-6Ar" firstAttribute="top" secondItem="033-nc-v9k" secondAttribute="bottom" constant="8" id="AbT-9N-3B8"/>
                         <constraint firstAttribute="trailing" secondItem="diB-zB-sgE" secondAttribute="trailing" constant="18" id="BRw-FZ-K2R"/>
                         <constraint firstAttribute="trailing" secondItem="033-nc-v9k" secondAttribute="trailing" constant="18" id="CCC-ui-gIl"/>
+                        <constraint firstItem="K8j-xa-s3H" firstAttribute="top" secondItem="R3d-Vv-TOM" secondAttribute="bottom" constant="8" id="Ldi-tc-QG6"/>
                         <constraint firstItem="033-nc-v9k" firstAttribute="leading" secondItem="ffs-Wt-3jn" secondAttribute="leading" constant="18" id="TVN-Qw-tbr"/>
                         <constraint firstItem="diB-zB-sgE" firstAttribute="leading" secondItem="ffs-Wt-3jn" secondAttribute="leading" constant="18" id="TdT-gS-GAj"/>
                         <constraint firstAttribute="trailing" secondItem="g0B-Lv-vf9" secondAttribute="trailing" constant="18" id="TyK-u3-NGn"/>
                         <constraint firstItem="R3d-Vv-TOM" firstAttribute="centerX" secondItem="ffs-Wt-3jn" secondAttribute="centerX" id="Whj-9f-9Jt"/>
-                        <constraint firstAttribute="bottom" secondItem="1Fw-EK-6Ar" secondAttribute="bottom" constant="18" id="gts-mj-VwN"/>
+                        <constraint firstAttribute="bottom" secondItem="K8j-xa-s3H" secondAttribute="bottom" constant="18" id="Yvq-gs-EB1"/>
                         <constraint firstItem="g0B-Lv-vf9" firstAttribute="top" secondItem="ffs-Wt-3jn" secondAttribute="top" constant="18" id="hL7-Ro-59z"/>
                         <constraint firstItem="1Fw-EK-6Ar" firstAttribute="centerX" secondItem="ffs-Wt-3jn" secondAttribute="centerX" id="nBE-Bx-Rj2"/>
                         <constraint firstItem="g0B-Lv-vf9" firstAttribute="leading" secondItem="ffs-Wt-3jn" secondAttribute="leading" constant="18" id="uMb-Zr-e79"/>

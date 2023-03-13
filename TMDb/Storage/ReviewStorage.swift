@@ -60,4 +60,20 @@ class ReviewStorage: NSObject {
         }
         
     }
+    
+    func delete(reviewId: Int) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let manageContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: reviewEntityName)
+        fetchRequest.predicate = NSPredicate(format: "review_id = %d", reviewId)
+        
+        do {
+            let fetch = try manageContext.fetch(fetchRequest)
+            let delete = fetch[0] as! NSManagedObject
+            manageContext.delete(delete)
+            try manageContext.save()
+        } catch let error {
+            print(error)
+        }
+    }
 }
