@@ -13,3 +13,8 @@ struct IconMenu {
     var title: String
     var action: () -> Void
 }
+
+struct SectionMenu {
+    var header: String
+    var iconMenus: [IconMenu]
+}

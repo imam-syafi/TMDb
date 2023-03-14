@@ -17,6 +17,7 @@ class HomeViewController: UIViewController {
     
     let cellIdentifier = "IconMenuCell"
     var iconMenuDataSource = [IconMenu]()
+    var sectionMenuData = [SectionMenu]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,21 +64,31 @@ class HomeViewController: UIViewController {
     }
     
     func loadIconMenuData() {
-        iconMenuDataSource += [
-            // movie
-            IconMenu(icon: "icons8-imovie-50", title: "Top Rated", action: topRatedMovieTapped),
-            IconMenu(icon: "icons8-movie-projector-50", title: "Upcoming", action: todo),
-            IconMenu(icon: "icons8-movie-theater-64", title: "Now Playing", action: todo),
-            IconMenu(icon: "icons8-movie-ticket-50", title: "Popular", action: todo),
-            
-            // tv
-            IconMenu(icon: "icons8-retro-tv-filled-50", title: "Popular", action: todo),
-            IconMenu(icon: "icons8-popcorn-64", title: "Top Rated", action: todo),
-            IconMenu(icon: "icons8-clapperboard-50", title: "On the Air", action: todo),
-            IconMenu(icon: "icons8-cinema-50", title: "Airing Today", action: todo),
-            
-            // people
-            IconMenu(icon: "icons8-charlie-chaplin-64", title: "Popular", action: popularPeopleTapped),
+        sectionMenuData = [
+            SectionMenu(
+                header: "Movies",
+                iconMenus: [
+                    IconMenu(icon: "icons8-imovie-50", title: "Top Rated", action: topRatedMovieTapped),
+                    IconMenu(icon: "icons8-movie-projector-50", title: "Upcoming", action: todo),
+                    IconMenu(icon: "icons8-movie-theater-64", title: "Now Playing", action: todo),
+                    IconMenu(icon: "icons8-movie-ticket-50", title: "Popular", action: todo),
+                ]
+            ),
+            SectionMenu(
+                header: "TV Shows",
+                iconMenus: [
+                    IconMenu(icon: "icons8-retro-tv-filled-50", title: "Popular", action: todo),
+                    IconMenu(icon: "icons8-popcorn-64", title: "Top Rated", action: todo),
+                    IconMenu(icon: "icons8-clapperboard-50", title: "On the Air", action: todo),
+                    IconMenu(icon: "icons8-cinema-50", title: "Airing Today", action: todo),
+                ]
+            ),
+            SectionMenu(
+                header: "People",
+                iconMenus: [
+                    IconMenu(icon: "icons8-charlie-chaplin-64", title: "Popular", action: popularPeopleTapped),
+                ]
+            )
         ]
         
         iconMenuCollection.reloadData()
@@ -126,18 +137,22 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSource {
     
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return sectionMenuData.count
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return iconMenuDataSource.count
+        return sectionMenuData[section].iconMenus.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! IconMenuCell
-        let data = iconMenuDataSource[indexPath.row]
+        let data = sectionMenuData[indexPath.section].iconMenus[indexPath.row]
 
         cell.iconImg.image = UIImage(named: data.icon)
         cell.btn.setTitle(data.title, for: .normal)
         cell.action = data.action
-        
+
         return cell
     }
 }
