@@ -36,9 +36,13 @@
 		9DF0A87829BAE09900FA7750 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF0A87729BAE09900FA7750 /* Utils.swift */; };
 		9DF0A87A29BAE3FF00FA7750 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF0A87929BAE3FF00FA7750 /* Movie.swift */; };
 		9DF0A87D29BAE50000FA7750 /* TmdbService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF0A87C29BAE50000FA7750 /* TmdbService.swift */; };
+		E9803959AC8425C0625CE3A8 /* Pods_TMDb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58BDE5663CE295579C801292 /* Pods_TMDb.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		58BDE5663CE295579C801292 /* Pods_TMDb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TMDb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B4B59E8A4A814757542779B /* Pods-TMDb.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TMDb.debug.xcconfig"; path = "Target Support Files/Pods-TMDb/Pods-TMDb.debug.xcconfig"; sourceTree = "<group>"; };
+		5F1DAA31F25F55239FDD3333 /* Pods-TMDb.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TMDb.release.xcconfig"; path = "Target Support Files/Pods-TMDb/Pods-TMDb.release.xcconfig"; sourceTree = "<group>"; };
 		9D0A76D829BED97200DA306E /* TMDb.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TMDb.xcdatamodel; sourceTree = "<group>"; };
 		9D0A76DA29BEDF3500DA306E /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 		9D0A76DB29BEDF3500DA306E /* CommentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentViewController.xib; sourceTree = "<group>"; };
@@ -77,12 +81,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9803959AC8425C0625CE3A8 /* Pods_TMDb.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		045B5BF25A6C6211F93E53F9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				58BDE5663CE295579C801292 /* Pods_TMDb.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3DD6CEF7F95457D902FE4841 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5B4B59E8A4A814757542779B /* Pods-TMDb.debug.xcconfig */,
+				5F1DAA31F25F55239FDD3333 /* Pods-TMDb.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		9D6CA39329B71F0A00035705 /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +130,8 @@
 				9D84032629B6F21E00E6A667 /* TMDb */,
 				9D84032529B6F21E00E6A667 /* Products */,
 				9D0A76D729BED97200DA306E /* TMDb.xcdatamodeld */,
+				3DD6CEF7F95457D902FE4841 /* Pods */,
+				045B5BF25A6C6211F93E53F9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -175,9 +200,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9D84033629B6F21E00E6A667 /* Build configuration list for PBXNativeTarget "TMDb" */;
 			buildPhases = (
+				EA28CB8EA5EAFB6E743E8798 /* [CP] Check Pods Manifest.lock */,
 				9D84032029B6F21E00E6A667 /* Sources */,
 				9D84032129B6F21E00E6A667 /* Frameworks */,
 				9D84032229B6F21E00E6A667 /* Resources */,
+				70DBE9F8A5A7A32243EA43F4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -242,6 +269,49 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		70DBE9F8A5A7A32243EA43F4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TMDb/Pods-TMDb-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TMDb/Pods-TMDb-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EA28CB8EA5EAFB6E743E8798 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TMDb-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9D84032029B6F21E00E6A667 /* Sources */ = {
@@ -392,6 +462,7 @@
 		};
 		9D84033729B6F21E00E6A667 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5B4B59E8A4A814757542779B /* Pods-TMDb.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -407,6 +478,7 @@
 		};
 		9D84033829B6F21E00E6A667 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F1DAA31F25F55239FDD3333 /* Pods-TMDb.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
