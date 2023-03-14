@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 extension UIViewController {
     
@@ -26,15 +27,7 @@ extension UIImageView {
     
     func loadFromUrl(url: String) {
         if let urls = URL(string: url) {
-            let task = URLSession.shared.dataTask(with: urls) { data, response, error in
-                guard let data = data, error == nil else { return }
-
-                DispatchQueue.main.async {
-                    self.image = UIImage(data: data)
-                }
-            }
-
-            task.resume()
+            self.kf.setImage(with: urls)
         }
     }
 }
