@@ -20,6 +20,9 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var overviewLabel: UILabel!
     
+    @IBOutlet weak var emptyLabel: UILabel!
+    @IBOutlet weak var commentSectionLabel: UILabel!
+    
     var obs: NSKeyValueObservation?
     
     @IBOutlet weak var reviewTableView: UITableView!
@@ -35,7 +38,6 @@ class DetailViewController: UIViewController {
         // Do any additional setup after loading the view.
         obs = reviewTableView.observe(\.contentSize, options: .new) { (_, change) in
             guard let height = change.newValue?.height else { return }
-            print("foo \(height)")
             self.heightConstraint.constant = height
         }
         
@@ -68,7 +70,11 @@ class DetailViewController: UIViewController {
     func loadReviewData() {
         if let movieId = movieDto?.id {
             reviewsData = storage.getByMovieId(movieId: movieId)
+            
             reviewTableView.reloadData()
+            
+            emptyLabel.isHidden = !reviewsData.isEmpty
+            commentSectionLabel.text = reviewsData.isEmpty ? "Comment Section" : "Comment Section (\(reviewsData.count))"
         }
     }
     
