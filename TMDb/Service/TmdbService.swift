@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 protocol TmdbServiceDelegate {
     func onGetMoviesSucceed(movies: [Movie])
@@ -20,54 +21,38 @@ class TmdbService: NSObject {
     var delegate: TmdbServiceDelegate?
     
     func getTopRatedMovies() {
-        var req = URLRequest(url: createEndpoint(path: "/movie/top_rated"))
-        req.httpMethod = "GET"
+        let url = createEndpoint(path: "/movie/top_rated")
         
-        let task = URLSession.shared.dataTask(with: req) { body, res, err in
-            let httpRes = res as! HTTPURLResponse
-            
-            if httpRes.statusCode == 200 {
-                DispatchQueue.main.async {
-                    let data = try! JSONDecoder().decode(GetMoviesResponse.self, from: body!)
+        Alamofire.request(url, method: .get)
+            .validate()
+            .responseJSON { response in
+                if response.result.isSuccess {
+                    let data = try! JSONDecoder().decode(GetMoviesResponse.self, from: response.data!)
                     self.delegate?.onGetMoviesSucceed(movies: data.results)
-                }
-            } else {
-                DispatchQueue.main.async {
+                } else {
                     self.delegate?.onGetMoviesFailed()
                 }
-            }
         }
-        
-        task.resume()
     }
     
     func searchMovies(query: String) {
-        var req = URLRequest(
-            url: createEndpoint(
-                path: "/search/movie",
-                queryItems: [
-                    URLQueryItem(name: "query", value: query)
-                ]
-            )
+        let url = createEndpoint(
+            path: "/search/movie",
+            queryItems: [
+                URLQueryItem(name: "query", value: query)
+            ]
         )
-        req.httpMethod = "GET"
         
-        let task = URLSession.shared.dataTask(with: req) { body, res, err in
-            let httpRes = res as! HTTPURLResponse
-            
-            if httpRes.statusCode == 200 {
-                DispatchQueue.main.async {
-                    let data = try! JSONDecoder().decode(GetMoviesResponse.self, from: body!)
+        Alamofire.request(url, method: .get)
+            .validate()
+            .responseJSON { response in
+                if response.result.isSuccess {
+                    let data = try! JSONDecoder().decode(GetMoviesResponse.self, from: response.data!)
                     self.delegate?.onGetMoviesSucceed(movies: data.results)
-                }
-            } else {
-                DispatchQueue.main.async {
+                } else {
                     self.delegate?.onGetMoviesFailed()
                 }
-            }
         }
-        
-        task.resume()
     }
     
     private func createEndpoint(path: String, queryItems: [URLQueryItem] = []) -> URL {
@@ -82,3 +67,4 @@ class TmdbService: NSObject {
         return components!.url!.appendingPathComponent(path)
     }
 }
+
