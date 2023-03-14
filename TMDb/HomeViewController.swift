@@ -15,6 +15,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var iconMenuCollection: UICollectionView!
     @IBOutlet weak var gridHeight: NSLayoutConstraint!
     
+    let headerIdentifier = "HeaderView"
     let cellIdentifier = "IconMenuCell"
     var iconMenuDataSource = [IconMenu]()
     var sectionMenuData = [SectionMenu]()
@@ -42,6 +43,11 @@ class HomeViewController: UIViewController {
         
         iconMenuCollection.delegate = self
         iconMenuCollection.dataSource = self
+        iconMenuCollection.register(
+            UINib(nibName: headerIdentifier, bundle: nil),
+            forSupplementaryViewOfKind: UICollectionElementKindSectionHeader,
+            withReuseIdentifier: headerIdentifier
+        )
         iconMenuCollection.register(
             UINib(nibName: cellIdentifier, bundle: nil),
             forCellWithReuseIdentifier: cellIdentifier
@@ -135,7 +141,7 @@ class HomeViewController: UIViewController {
     }
 }
 
-extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSource {
+extension HomeViewController : UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return sectionMenuData.count
@@ -144,6 +150,17 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return sectionMenuData[section].iconMenus.count
     }
+    
+//    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+//        print("Foo header")
+//        let headerCell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerIdentifier, for: indexPath) as! HeaderView
+    
+//        HeaderCell.titleLabel
+        
+//        return headerCell
+    
+//        return UICollectionReusableView()
+//    }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! IconMenuCell
