@@ -49,11 +49,15 @@ class MovieListViewController: UIViewController {
 
 extension MovieListViewController : TmdbServiceDelegate {
     func onGetMoviesSucceed(movies: [Movie]) {
-        topRatedMovies.append(contentsOf: movies)
-        movieListTable.reloadData()
+        topRatedMovies = movies
         
+        movieListTable.reloadData()
         movieListTable.isHidden = false
         loadingIndicator.stopAnimating()
+        
+        if movies.isEmpty {
+            self.presentAlert(message: "No result")
+        }
     }
 
     func onGetMoviesFailed() {

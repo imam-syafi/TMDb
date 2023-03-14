@@ -106,8 +106,7 @@ class HomeViewController: UIViewController {
     
     @IBAction func searchTapped(_ sender: UIButton) {
         let query = searchField.text?
-            .trimmingCharacters(in: .whitespacesAndNewlines)
-            .alphanumeric ?? ""
+            .trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
         
         if query.isEmpty {
             self.presentAlert(message: "Please fill in movie title")
