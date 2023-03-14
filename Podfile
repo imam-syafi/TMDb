@@ -6,6 +6,6 @@ target 'TMDb' do
   use_frameworks!
 
   # Pods for TMDb
-    pod 'Kingfisher', '~> 4.0.0’
+    pod 'Kingfisher', '~> 4.0.1’
 
 end
