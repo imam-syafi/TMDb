@@ -20,6 +20,8 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var overviewLabel: UILabel!
     
+    var obs: NSKeyValueObservation?
+    
     @IBOutlet weak var reviewTableView: UITableView!
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     
@@ -31,6 +33,12 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        obs = reviewTableView.observe(\.contentSize, options: .new) { (_, change) in
+            guard let height = change.newValue?.height else { return }
+            print("foo \(height)")
+            self.heightConstraint.constant = height
+        }
+        
         self.navigationController?.navigationBar.isHidden = false
         
         if movieDto != nil {
@@ -61,8 +69,6 @@ class DetailViewController: UIViewController {
         if let movieId = movieDto?.id {
             reviewsData = storage.getByMovieId(movieId: movieId)
             reviewTableView.reloadData()
-            heightConstraint.constant = reviewTableView.contentSize.height  * CGFloat(1.5)
-            view.layoutIfNeeded()
         }
     }
     
