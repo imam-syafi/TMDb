@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MovieListViewController" customModule="TMDb" customModuleProvider="target">
             <connections>
+                <outlet property="loadingIndicator" destination="20o-7m-4Ka" id="Kqr-Lw-cA2"/>
                 <outlet property="movieListTable" destination="EVy-23-pxX" id="CcS-sp-QyG"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -24,16 +25,21 @@
                     <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </imageView>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="188" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EVy-23-pxX">
+                <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="188" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EVy-23-pxX">
                     <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                 </tableView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="20o-7m-4Ka">
+                    <rect key="frame" x="169" y="315.5" width="37" height="37"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="20o-7m-4Ka" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="4ou-tV-cMU"/>
                 <constraint firstItem="46N-Sp-lYI" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="Dvu-hI-Jzx"/>
                 <constraint firstAttribute="trailing" secondItem="46N-Sp-lYI" secondAttribute="trailing" id="NxO-nl-sib"/>
+                <constraint firstItem="20o-7m-4Ka" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="U57-e3-R2C"/>
                 <constraint firstItem="EVy-23-pxX" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Uyp-sY-PUu"/>
                 <constraint firstAttribute="bottom" secondItem="46N-Sp-lYI" secondAttribute="bottom" id="Xxd-Ry-Ohk"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="EVy-23-pxX" secondAttribute="bottom" id="ajR-7z-5xE"/>

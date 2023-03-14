@@ -11,6 +11,7 @@ import UIKit
 class MovieListViewController: UIViewController {
 
     @IBOutlet weak var movieListTable: UITableView!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
     let cellIdentifier = "MovieCell"
     let tmdbService = TmdbService()
@@ -36,6 +37,7 @@ class MovieListViewController: UIViewController {
     
     func loadData() {
         tmdbService.delegate = self
+        loadingIndicator.startAnimating()
         
         if query != nil {
             tmdbService.searchMovies(query: query!)
@@ -49,9 +51,13 @@ extension MovieListViewController : TmdbServiceDelegate {
     func onGetMoviesSucceed(movies: [Movie]) {
         topRatedMovies.append(contentsOf: movies)
         movieListTable.reloadData()
+        
+        movieListTable.isHidden = false
+        loadingIndicator.stopAnimating()
     }
 
     func onGetMoviesFailed() {
+        loadingIndicator.stopAnimating()
         self.presentAlert(message: "Failed to fetch remote data")
     }
 }
