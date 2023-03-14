@@ -15,7 +15,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var iconMenuCollection: UICollectionView!
     @IBOutlet weak var gridHeight: NSLayoutConstraint!
     
-    let headerIdentifier = "HeaderView"
+    let headerIdentifier = "SectionHeaderCell"
     let cellIdentifier = "IconMenuCell"
     var iconMenuDataSource = [IconMenu]()
     var sectionMenuData = [SectionMenu]()
@@ -151,16 +151,13 @@ extension HomeViewController : UICollectionViewDelegateFlowLayout, UICollectionV
         return sectionMenuData[section].iconMenus.count
     }
     
-//    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-//        print("Foo header")
-//        let headerCell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerIdentifier, for: indexPath) as! HeaderView
-    
-//        HeaderCell.titleLabel
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let headerCell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerIdentifier, for: indexPath) as! SectionHeaderCell
         
-//        return headerCell
-    
-//        return UICollectionReusableView()
-//    }
+        headerCell.titleLabel.text = sectionMenuData[indexPath.section].header
+        
+        return headerCell
+    }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! IconMenuCell
