@@ -7,5 +7,6 @@ target 'TMDb' do
 
   # Pods for TMDb
     pod 'Kingfisher', '~> 4.0.1’
+    pod 'Alamofire', '~> 4.8.2’
 
 end
